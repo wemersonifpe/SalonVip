@@ -1,0 +1,121 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 11/03/2019, 16:26:03
+    Author     : wemerson
+*/
+
+@charset 'utf-8';
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhai');
+
+body {
+    margin: 0;
+    padding: 0;
+    min-width: 350px;
+}
+.temp_container_cli {
+    min-height: 800px !important;
+    min-width: 300px !important;
+    background: url("#{resource['imagens/cabelo.jpg']}") fixed;
+    background-size: cover;
+    /*height: 45rem;*/
+}
+
+.temp_container_emp {
+    min-height: 800px !important;
+    min-width: 300px !important;
+    background: url("#{resource['imagens/temEmp.jpg']}") fixed;
+    background-size: cover;
+}
+
+.container_formcad {
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    display: flex;
+    margin: 3rem 20rem 9rem 20rem;
+    justify-content: center;
+    background: #FFFFFF;
+}
+
+.content_formcad {
+    margin: 2rem;
+}
+
+.temp_cabecalho{
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+.temp_cabecalho {
+    margin-bottom: 3rem !important;
+}
+
+.textpagina{
+    text-align: center; 
+    font-family: 'Bahnschrift SemiCondensed';
+    font-size: 26pt;
+    color: #8d5421;
+}
+
+.navbar {
+    height: 12%;
+    background-image: radial-gradient(circle at top left, #cc0000, #ff0066);
+    display: flex;
+}
+
+.menu {
+    margin-left: 20rem;
+    display: flex;
+    align-items: center;
+}
+
+#login_cadastro1, li.menu_iten {
+    display: inline;
+    margin: 0 0.8rem;
+    font-family: 'Bahnschrift SemiCondensed', sans-serif;
+    font-size: 16pt;
+}
+
+.outputlink {
+    text-decoration: none;
+    color: #e3e3e3;
+}
+li.menu_iten:hover, .outputlink:hover {
+    cursor: pointer;
+    color: #8d5421;
+} 
+li.menu_iten:nth-child(2){
+    cursor: context-menu;
+}
+
+.logo {
+    margin-left: 5rem;
+}
+
+.temp_rodape {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+.rodape {
+    background-image: radial-gradient(circle at top left, #cc0000, #ff0066);
+    margin-top: 0.5rem;
+    min-height: 3rem;
+}
+
+.copy {
+    margin: 2rem 2rem 0 2rem;
+    border-top: 1px solid #d3d3d3;
+}
+
+p.mens_rodape {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    text-shadow: none;
+    color: #ffffff;
+}

@@ -1,12 +1,169 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Salão de Beleza</title>
+        <h:outputStylesheet library="css" name="index.css"/>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <p:growl id="gro" life="4000" />
+        <h:form id="formlogin">
+            <div class="container">
+                
+                <div class="navbar">
+                    <div class="logo">
+                        <h1 style="font-family: Playfair Display,Vladimir Script">SalonVip</h1>
+                    </div>
+                    <div class="menu">
+                        <li class="menu_iten">
+                            <h:outputLink styleClass="outputlink" value="javascript:void(0)">Inicio</h:outputLink>
+                        </li>
+                        <li class="menu_iten">
+                            <h:outputLink styleClass="outputlink" value="javascript:void(0)">Serviços</h:outputLink>
+                        </li>
+                        <li class="menu_iten">
+                            <h:outputLink styleClass="outputlink" value="javascript:void(0)">Agendamento</h:outputLink>
+                        </li>
+                        <li class="menu_iten">
+                            <h:outputLink styleClass="outputlink" value="javascript:void(0)">Contato</h:outputLink>
+                        </li>
+                        <li class="menu_iten">
+                            <h:outputLink styleClass="outputlink" value="javascript:void(0)">Empresas</h:outputLink>
+                        </li>
+                    </div>
+                    <div class="menu">
+                        <ul id="login_cadastro">
+                            <li class="menu_login">
+                                <h:outputLink styleClass="outputlinklogin" value="javascript:void(0)" onclick="PF('dialLogin').show();">Login</h:outputLink>
+                            </li>
+                            <li class="menu_login">ou</li>
+                            <li class="menu_login">
+                                <h:outputLink styleClass="outputlinklogin" value="javascript:void(0)" onclick="PF('dialCadastro').show();">Cadastrar</h:outputLink>
+                            </li>
+                        </ul>
+
+                        <p:growl id="groLogin" life="3000" />
+
+                        <p:dialog styleClass="dialoglogin" header="Tela de Login" visible="false" modal="true" widgetVar="dialLogin" resizable="false" appendTo="@(form)">
+                            <h1 class="titulodialoglogin">Acesse sua conta</h1>
+                            <p:commandButton styleClass="fechardialog" update="formlogin" oncomplete="PF('dialLogin').hide();" value="X" />
+
+                            <h:panelGrid styleClass="panelgridlogin" columns="1" cellpadding="5">
+                                <h:outputLabel styleClass="outputlabeltext" for="user" value="Email" />
+                                <p:inputText styleClass="inputemail" id="user" value="#{autenticarBean.email}" required="true" label="email" />
+
+                                <h:outputLabel styleClass="outputlabeltext" for="password" value="Senha" />
+                                <p:password styleClass="inputsenha" id="password" value="#{autenticarBean.senha}" required="true" label="senha" />
+
+                                <h:outputLink styleClass="recuperarsenha" value="javascript:void(0)" onclick="#">
+                                    Esqueceu sua senha?
+                                </h:outputLink>
+
+                                <f:facet name="footer">
+                                    <p:commandButton styleClass="buttonlogin" value="Login" update="groLogin :formlogin" action="#{autenticarBean.entrar()}" />
+                                </f:facet>  
+                            </h:panelGrid>
+                        </p:dialog>
+                        
+                        <p:dialog styleClass="dialogcadastro" header="Tela de Cadastro" visible="false" modal="true" widgetVar="dialCadastro" resizable="false" appendTo="@(body)">
+                            <p:commandButton styleClass="fechardialog" update="formlogin" oncomplete="PF('dialCadastro').hide();" value="X"/>
+                            <h:panelGrid styleClass="panelgridcad" columns="2" cellpadding="5">
+                                <h:outputLink styleClass="fazercad1" value="faces/cliente/cadastrarcliente.xhtml?faces-redirect=true">
+                                    <p:graphicImage styleClass="icon_cad" library="imagens" name="icon_cliente.png" />
+                                    <h:outputText styleClass="textcadtitulo" value="Para Cliente"/>
+                                </h:outputLink>
+
+                                <h:outputLink styleClass="fazercad2" value="faces/empresa/cadastrarempresa.xhtml?faces-redirect=true">
+                                    <p:graphicImage styleClass="icon_cad" library="imagens" name="icon_empresa.png" />
+                                    <h:outputText styleClass="textcadtitulo" value="Para Empresa"/>
+                                </h:outputLink>
+                            </h:panelGrid>
+                        </p:dialog> 
+                    </div>
+                </div>
+                
+                <h1 id="titulo">Bem-vinda</h1>
+                <h3>A experiência completa do SALON VIP</h3>
+                
+                <div class="informativo">
+                    <h1>Nossos serviços</h1>
+                    <div class="conteudo_info">
+                        <div class="info">
+                            <h1 id="servico">Facial</h1>
+                            <div class="agend"><h:outputLink styleClass="outputlinkserv" value="javascript:void(0)">Agende ja ></h:outputLink></div>
+                            <h:graphicImage styleClass="inf_img" library="imagens" name="cabelo.jpg"/>
+                        </div>
+                        <div class="info">
+                            <h:graphicImage styleClass="inf_img" library="imagens" name="cosmeticos.png"/>
+                            <h1 id="servico">Cabelo</h1>
+                            <div class="agend"><h:outputLink styleClass="outputlinkserv" value="javascript:void(0)">Agende ja ></h:outputLink></div>
+                        </div>
+                        <div class="info">
+                            <h1 id="servico">Maquiagem</h1>
+                            <div class="agend"><h:outputLink styleClass="outputlinkserv" value="javascript:void(0)">Agende ja ></h:outputLink></div>
+                            <h:graphicImage styleClass="inf_img" library="imagens" name="unhas.png"/>
+                        </div>
+                        <div class="info">
+                            <h:graphicImage styleClass="inf_img" library="imagens" name="maquiagem.jpg"/>
+                            <h1 id="servico">Unhas</h1>
+                            <div class="agend"><h:outputLink styleClass="outputlinkserv" value="javascript:void(0)">Agende ja ></h:outputLink></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quemsomos">
+                    <h1>Quem Somos</h1>
+                    <p>Sou um parágrafo. Clique aqui para editar e adicionar o seu
+                        próprio texto. É fácil! Basta clicar em "Editar Texto" ou clicar
+                        duas vezes sobre mim e você poderá adicionar o seu próprio 
+                        conteúdo e trocar fontes. Sou um ótimo 
+                        lugar para você contar 
+                        sua história e permitir que seus clientes saibam um pouco 
+                        mais sobre você. 
+                        <br></br>
+                        <br></br>
+                        Este é um ótimo espaço para escrever um texto longo sobre a 
+                        sua empresa e seus serviços. Fale sobre a sua equipe e 
+                        sobre os serviços prestados por você. Conte aos seus
+                        visitantes sobre como teve a idéia de iniciar o seu negócio e o 
+                        que o torna diferente de seus competidores. Faça com que 
+                        sua empresa se destaque e mostre quem você é.</p>
+                </div>
+                
+                <div class="rodape"> 
+                    <div class="rodape-content">
+                        <div>
+                            <ul class="conteudo_rodape">
+                                <li class="sobre_empresa">Contato</li>
+                                <li class="sobre_empresa">(87) 99999-9999</li>
+                                <li class="sobre_empresa">Av. Francisco Figueredo de Lima, 999</li> 
+                                <li class="sobre_empresa">Jd. Paulistano - Garanhuns, PE</li>
+                                <li class="sobre_empresa">salonvip@gmail.com</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="conteudo_rodape">
+                                <li class="sobre_empresa">Mais Informações</li> 
+                                <li class="sobre_empresa"><a href="#">Termos de Uso</a></li>
+                                <li class="sobre_empresa"><a href="#">Dúvidas Frequentes FAQ</a></li>
+                                <li class="sobre_empresa"><a href="#">Fale Conosco</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="conteudo_rodape">
+                                <li class="sobre_empresa">Nossos Parceiros</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="copy">
+                        <p class="mens_rodape">&copy; 2019 SalonVip - Todos os direitos resevados</p>
+                    </div>
+                </div>
+            </div>
+        </h:form>
     </h:body>
 </html>
 

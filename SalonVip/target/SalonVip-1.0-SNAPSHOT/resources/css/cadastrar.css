@@ -1,0 +1,51 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 03/03/2019, 20:30:07
+    Author     : wemerson
+*/
+
+@charset 'utf-8';
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhai');
+
+.container_formcad {
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    display: flex;
+    margin: 3rem 20rem 9rem 20rem;
+    justify-content: center;
+    background: #FFFFFF;
+}
+
+.textpagina{
+    text-align: center; 
+    font-family: 'Bahnschrift SemiCondensed';
+    font-size: 26pt;
+    color: #8d5421;
+}
+
+.content_formcad {
+    margin: 2rem;
+}
+
+h1.titulo_cadcli {
+    font-family: 'Baloo Bhai', 'Arial', sans-serif;
+    font-size: 18pt;
+    color: darkgrey;
+}
+
+.panelgridcad tr, .panelgridcad td, .panelgrid_end tr, .panelgrid_end td {
+    border: none !important;
+}
+
+.output_text {
+    text-align: right;
+}
+
+.button_cad {
+    display: block;
+    float: right;
+}

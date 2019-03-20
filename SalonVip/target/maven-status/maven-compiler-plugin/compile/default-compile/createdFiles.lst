@@ -1,4 +1,2 @@
 br\edu\ifpe\salonvip\util\HibernateUtil.class
-br\edu\ifpe\salonvip\interfaces\EmpresaDao.class
 br\edu\ifpe\salonvip\interfaces\DAO.class
-br\edu\ifpe\salonvip\interfaces\ClienteDao.class
