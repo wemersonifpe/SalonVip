@@ -7,6 +7,15 @@
     <h:head>
         <title>Salão de Beleza</title>
         <h:outputStylesheet library="css" name="index.css"/>
+        <style>
+            html {
+              scroll-behavior: smooth;
+            }
+
+            #1 {
+              height: 600px;
+            }
+        </style>
     </h:head>
     <h:body>
         <p:growl id="gro" life="4000" />
@@ -19,13 +28,13 @@
                     </div>
                     <div class="menu">
                         <li class="menu_iten">
-                            <h:outputLink styleClass="outputlink" value="javascript:void(0)">Inicio</h:outputLink>
+                            <h:outputLink styleClass="outputlink" value="faces/index.xhtml?faces-redirect=true">Inicio</h:outputLink>
                         </li>
                         <li class="menu_iten">
-                            <h:outputLink styleClass="outputlink" value="javascript:void(0)">Serviços</h:outputLink>
+                            <a href="#1" class="outputlink" value="javascript:void(0)">Serviços</a>
                         </li>
                         <li class="menu_iten">
-                            <h:outputLink styleClass="outputlink" value="javascript:void(0)">Agendamento</h:outputLink>
+                            <h:outputLink styleClass="outputlink" value="faces/agendamentos.xhtml?faces-redirect=true">Agendamento</h:outputLink>
                         </li>
                         <li class="menu_iten">
                             <h:outputLink styleClass="outputlink" value="javascript:void(0)">Contato</h:outputLink>
@@ -86,15 +95,15 @@
                 </div>
                 
                 <h1 id="titulo">Bem-vinda</h1>
-                <h3>A experiência completa do SALON VIP</h3>
+                <h3>A experiência completa do SalonVip</h3>
                 
-                <div class="informativo">
+                <div id="1" class="informativo">
                     <h1>Nossos serviços</h1>
                     <div class="conteudo_info">
                         <div class="info">
                             <h1 id="servico">Facial</h1>
                             <div class="agend"><h:outputLink styleClass="outputlinkserv" value="javascript:void(0)">Agende ja ></h:outputLink></div>
-                            <h:graphicImage styleClass="inf_img" library="imagens" name="cabelo.jpg"/>
+                            <h:graphicImage styleClass="inf_img" library="imagens" name="cabelos.png"/>
                         </div>
                         <div class="info">
                             <h:graphicImage styleClass="inf_img" library="imagens" name="cosmeticos.png"/>

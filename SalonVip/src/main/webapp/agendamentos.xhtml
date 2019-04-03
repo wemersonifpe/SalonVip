@@ -3,13 +3,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Salão de Beleza</title>
         <h:outputStylesheet library="css" name="template.css"/>
         <h:outputStylesheet library="css" name="tabView.css"/>
+        
     </h:head>
     <h:body>
+        <ui:define name="metadata">
+                <f:metadata>
+                    <f:event listener="#{servicoController.listas()}" type="preRenderView"/>
+                </f:metadata>
+            </ui:define>
         <div class="temp_container_cli">
             <div class="navbar">
                 <div class="logo">
@@ -17,13 +24,13 @@
                 </div>
                 <div class="menu">
                     <li class="menu_iten">
-                        <h:outputLink styleClass="outputlink" value="javascript:void(0)">Inicio</h:outputLink>
+                        <h:outputLink styleClass="outputlink" value="faces/index.xhtml?faces-redirect=true">Inicio</h:outputLink>
                     </li>
                     <li class="menu_iten">
                         <h:outputLink styleClass="outputlink" value="javascript:void(0)">Serviços</h:outputLink>
                     </li>
                     <li class="menu_iten">
-                        <h:outputLink styleClass="outputlink" value="javascript:void(0)">Agendamento</h:outputLink>
+                        <h:outputLink styleClass="outputlink" value="faces/agendamentos.xhtml?faces-redirect=true">Agendamento</h:outputLink>
                     </li>
                     <li class="menu_iten">
                         <h:outputLink styleClass="outputlink" value="javascript:void(0)">Contato</h:outputLink>
@@ -33,10 +40,9 @@
                     </li>
                 </div>
             </div>
+            <h1 class="textpagina">Nossos Serviços</h1>
             <div class="container_formcad">
-                <div class="content_formcad">
-                    <h1 class="textpagina">Nossos Serviços</h1>
-                    
+                <div class="content_formcad">                   
                     <div class="tab">
                         <button class="tablinks" onclick="openCity(event, 'Cabelo')" id="defaultOpen">Cabelo</button>
                         <button class="tablinks" onclick="openCity(event, 'Facial')">Facial</button>
@@ -45,18 +51,64 @@
                     </div>
 
                     <div id="Cabelo" class="tabcontent">
-                        <h3>Cabelo</h3>
-                        <p>Um dos serviços do salonVip.</p>
+                        <div class="copy">
+                            <h:column>
+                                <h:outputText styleClass="iten" value="Corte de Cabelo"/>
+                            </h:column>
+                            <h:column>
+                                <h:outputText styleClass="iten" value="R$ 20,00"/>
+                            </h:column>
+                            <h:column>
+                                <p:commandButton styleClass="iten" value="Agendar" title="agendar" action="Cliente/agendarServico.xhtml?faces-redirect=true">
+                                    <f:setPropertyActionListener value="#{servico}" target="#{servicoController.servico}"/>
+                                </p:commandButton>
+                            </h:column>
+                        </div>
+                        <div class="copy">
+                            <p>Todos os direitos resevados</p>
+                        </div>
                     </div>
 
                     <div id="Facial" class="tabcontent">
-                        <h3>Facial</h3>
-                        <p>Um dos serviços do salonVip.</p> 
+                        <h:form id ="se">
+                            
+                            <h:dataTable value="#{servicoController.listaServico}"
+                                var="servico" id="proTable" 
+                                rows="#{servico.codigo}">
+                                <div class="copy">
+                                <h:column>
+                                    <h:outputText styleClass="iten" value="#{servico.empresa.nome}"/>
+                                </h:column>
+                                <h:column>
+                                    <h:outputText styleClass="iten" value="#{servico.nome}"/>
+                                </h:column>
+                                <h:column>
+                                    <h:outputText styleClass="iten" value="#{servico.duracao}min"/>
+                                </h:column>
+                                <h:column>
+                                    <h:outputText styleClass="iten" value="R$#{servico.valor}"/>
+                                </h:column> 
+                                <h:column>
+                                    <p:commandButton styleClass="iten" value="Agendar" title="agendar" action="Cliente/agendarServico.xhtml?faces-redirect=true">
+                                        <f:setPropertyActionListener value="#{servico}" target="#{servicoController.servico}"/>
+                                    </p:commandButton>
+                                </h:column>
+                                </div>
+                            </h:dataTable>
+                        </h:form>
                     </div>
 
                     <div id="Unhas" class="tabcontent">
-                        <h3>Unhas</h3>
-                        <p>Um dos serviços do salonVip.</p>
+                        <h3>Tokyo</h3>
+                        <div class="copy">
+                            <h:column>
+                                <h:outputText value="Testando"/>
+                            </h:column>
+                            <p>Tokyo is the capital of Japan.</p>
+                        </div>
+                        <div class="copy">
+                            <p>Todos os direitos resevados</p>
+                        </div>
                     </div>
                     
                     <div id="Maquiagem" class="tabcontent">
