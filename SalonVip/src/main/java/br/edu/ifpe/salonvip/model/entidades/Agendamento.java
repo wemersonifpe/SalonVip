@@ -6,6 +6,7 @@
 package br.edu.ifpe.salonvip.model.entidades;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -85,6 +86,47 @@ public class Agendamento implements Serializable {
 
     public void setHora(String hora) {
         this.hora = hora;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 59 * hash + this.codigo;
+        hash = 59 * hash + Objects.hashCode(this.cliente);
+        hash = 59 * hash + Objects.hashCode(this.servico);
+        hash = 59 * hash + Objects.hashCode(this.data);
+        hash = 59 * hash + Objects.hashCode(this.hora);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Agendamento other = (Agendamento) obj;
+        if (this.codigo != other.codigo) {
+            return false;
+        }
+        if (!Objects.equals(this.data, other.data)) {
+            return false;
+        }
+        if (!Objects.equals(this.hora, other.hora)) {
+            return false;
+        }
+        if (!Objects.equals(this.cliente, other.cliente)) {
+            return false;
+        }
+        if (!Objects.equals(this.servico, other.servico)) {
+            return false;
+        }
+        return true;
     }
 
     @Override

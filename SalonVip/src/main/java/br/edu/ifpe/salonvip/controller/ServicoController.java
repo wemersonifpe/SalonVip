@@ -10,6 +10,7 @@ import br.edu.ifpe.salonvip.model.entidades.Servico;
 import br.edu.ifpe.salonvip.model.negocio.NegocioServico;
 import br.edu.ifpe.salonvip.util.Messagens;
 import java.util.ArrayList;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -25,12 +26,14 @@ public class ServicoController {
     private Servico servico;
     private Horarios horas;
     private ArrayList<Servico> listaServico;
+    private ArrayList<Servico> cabelos;
     
     public ServicoController(){
         negServico = new NegocioServico();
         servico = new Servico();
         horas = new Horarios();
         listaServico = new ArrayList<>();
+        cabelos = new ArrayList<>();
     }
     
     public String salvar(){
@@ -76,6 +79,12 @@ public class ServicoController {
     
     public void listas(){
         listaServico = (ArrayList<Servico>) negServico.recuperarTodos();
+        
+    }
+    
+    public void listaCabelos(){
+        String categoria = "Cabelo";
+        cabelos = (ArrayList<Servico>) negServico.buscarServicoPorCategoria(categoria);
     }
     
     public void listarServicoPorEmpresa(int id){
@@ -110,5 +119,21 @@ public class ServicoController {
     public void setListaServico(ArrayList<Servico> listaServico) {
         this.listaServico = listaServico;
     }
-    
+
+    public Horarios getHoras() {
+        return horas;
+    }
+
+    public void setHoras(Horarios horas) {
+        this.horas = horas;
+    }
+
+    public ArrayList<Servico> getCabelos() {
+        return cabelos;
+    }
+
+    public void setCabelos(ArrayList<Servico> cabelos) {
+        this.cabelos = cabelos;
+    }
+
 }

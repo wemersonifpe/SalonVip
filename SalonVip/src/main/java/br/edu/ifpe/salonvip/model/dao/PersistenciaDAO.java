@@ -102,21 +102,4 @@ public class PersistenciaDAO {
         return lista;
     }
     
-    public Object autenticar(String sql, String login, String senha){
-        Session session = this.sessionFactory.openSession();
-        Object obj= null;
-        
-        try {
-            Query consulta = session.createQuery(sql+"WHERE a.login = :login AND a.senha = :senha");
-            consulta.setString("login", login);
-            consulta.setString("senha", senha);
-            obj = consulta.uniqueResult();
-        } catch (RuntimeException e) {
-            throw e;
-        } finally {
-            session.close();
-        }
-        return obj;
-    }
-    
 }

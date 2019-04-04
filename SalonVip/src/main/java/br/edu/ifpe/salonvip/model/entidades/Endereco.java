@@ -6,36 +6,42 @@
 package br.edu.ifpe.salonvip.model.entidades;
 
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
+import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  *
  * @author wemerson
  */
-@Embeddable
+@Entity
 public class Endereco implements Serializable {
     
-    @Column
+    @Id
+    @GeneratedValue
+    private int codigo;
     private int numero;
-    @Column(length = 30)
     private String logradouro;
-    @Column(length = 30)
     private String bairro;
-    @Column(length = 30)
     private String cidade;
-    @Column(length = 30)
-    private String estado;
 
     public Endereco() {
     }
 
-    public Endereco(int numero, String logradouro, String bairro, String cidade, String estado) {
+    public Endereco(int numero, String logradouro, String bairro, String cidade) {
         this.numero = numero;
         this.logradouro = logradouro;
         this.bairro = bairro;
         this.cidade = cidade;
-        this.estado = estado;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public int getNumero() {
@@ -70,17 +76,50 @@ public class Endereco implements Serializable {
         this.cidade = cidade;
     }
 
-    public String getEstado() {
-        return estado;
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 67 * hash + this.codigo;
+        hash = 67 * hash + this.numero;
+        hash = 67 * hash + Objects.hashCode(this.logradouro);
+        hash = 67 * hash + Objects.hashCode(this.bairro);
+        hash = 67 * hash + Objects.hashCode(this.cidade);
+        return hash;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Endereco other = (Endereco) obj;
+        if (this.codigo != other.codigo) {
+            return false;
+        }
+        if (this.numero != other.numero) {
+            return false;
+        }
+        if (!Objects.equals(this.logradouro, other.logradouro)) {
+            return false;
+        }
+        if (!Objects.equals(this.bairro, other.bairro)) {
+            return false;
+        }
+        if (!Objects.equals(this.cidade, other.cidade)) {
+            return false;
+        }
+        return true;
     }
 
     @Override
     public String toString() {
-        return "Endereco{" + "numero=" + numero + ", logradouro=" + logradouro + ", bairro=" + bairro + ", cidade=" + cidade + ", estado=" + estado + '}';
+        return "Endereco{" + "numero=" + numero + ", logradouro=" + logradouro + ", bairro=" + bairro + ", cidade=" + cidade + '}';
     }
     
     

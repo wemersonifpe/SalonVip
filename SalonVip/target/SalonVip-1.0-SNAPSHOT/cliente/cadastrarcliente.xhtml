@@ -22,34 +22,29 @@
                             <h1 class="titulo_cadcli">Adicione suas informações</h1>
                             <p:panelGrid styleClass="panelgridcad" columns="1">
                                 <h:outputText styleClass="output_text" value="Nome:"/>
-                                <p:inputText id="txtNome" value="#{controllerCliente.cliente.nome}" required="true"
+                                <p:inputText id="txtNome" value="#{clienteController.cliente.nome}" required="true"
                                              requiredMessage="Tá faltando preencher o campo nome!" size="50"/>
                                 <p:message for="txtNome" />
 
                                 <h:outputText styleClass="output_text" value="CPF:"/>
-                                <p:inputMask id="txtCpf" value="#{controllerCliente.cliente.cpf}" mask="999.999.999-99"
+                                <p:inputMask id="txtCpf" value="#{clienteController.cliente.cpf}" mask="999.999.999-99"
                                              required="true" requiredMessage="Tá faltando preencher o campo CPF!" size="50"/>
                                 <p:message for="txtCpf" />
 
-                                <h:outputText styleClass="output_text" value="Telefone:"/>
-                                <p:inputMask id="txtTelefone" value="#{controllerCliente.cliente.telefone}" mask="(99)99999-9999"
-                                             required="true" requiredMessage="Tá faltando preencher o campo telefone!" size="50"/>
-                                <p:message for="txtTelefone" />
-
                                 <h:outputText styleClass="output_text" value="Email:"/>
-                                <p:inputText id="email" value="#{controllerCliente.cliente.email}" required="true"
+                                <p:inputText id="email" value="#{clienteController.cliente.login}" required="true"
                                              requiredMessage="Tá faltando preencher o campo email!" size="50"/>
                                 <p:message for="email"/>
 
                                 <h:outputText styleClass="output_text" value="Senha:"/>
-                                <p:password id="senha" feedback="true" value="#{controllerCliente.cliente.senha}" required="true"
+                                <p:password id="senha" feedback="true" value="#{clienteController.cliente.senha}" required="true"
                                             requiredMessage="Tá faltando preencher o campo senha!" size="50"/>
                                 <p:message for="senha"/>
                             </p:panelGrid>
 
                             <br/>
                             
-                            <p:commandButton styleClass="button_cad" value="Cadastrar" action="#{controllerCliente.salvar()}"
+                            <p:commandButton styleClass="button_cad" value="Cadastrar" action="#{clienteController.salvar()}"
                                              update=":formCad :gro" >
                                 <p:confirm header="Atenção" message="Deseja realmente salvar?" />
                             </p:commandButton>

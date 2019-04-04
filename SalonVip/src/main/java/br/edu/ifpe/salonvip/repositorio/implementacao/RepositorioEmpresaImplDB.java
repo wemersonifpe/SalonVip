@@ -18,7 +18,7 @@ public class RepositorioEmpresaImplDB implements InterfaceEmpresa<Empresa>{
 
     @Override
     public Empresa autenticar(String login, String senha) {
-        return(Empresa) PersistenciaDAO.getInstance().autenticar("SELECT a FROM Empresa a", login, senha);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

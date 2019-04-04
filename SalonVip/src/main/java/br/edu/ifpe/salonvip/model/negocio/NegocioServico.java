@@ -86,4 +86,14 @@ public class NegocioServico implements InterfaceServico{
         }
     }
     
+    @Override
+    public List buscarServicoPorCategoria(String categoria){
+        List lista = repServico.buscarServicoPorCategoria(categoria);
+        if(lista == null){
+            return null;
+        }else{
+            return lista;
+        }
+    }
+    
 }

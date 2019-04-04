@@ -18,7 +18,7 @@ public class RepositorioClienteImplDB implements InterfaceCliente<Cliente>{
 
     @Override
     public Cliente autenticar(String login, String senha) {
-        return(Cliente) PersistenciaDAO.getInstance().autenticar("SELECT a FROM Cliente a", login, senha);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

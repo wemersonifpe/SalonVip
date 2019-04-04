@@ -45,7 +45,7 @@ public class AutenticarBean {
         if(clienteLogin == null){
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Você esta Logado!"));
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("clienteLogado", this.clienteLogin);
-            return "Cliente/agenadmentos.xhtml?faces-redirect=true";
+            return "Cliente/visualizarServicos.xhtml?faces-redirect=true";
         }else{
             NegocioEmpresa negEmp = new NegocioEmpresa();
             empresaLogin = negEmp.autenticar(email, senha);

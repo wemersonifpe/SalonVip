@@ -46,10 +46,10 @@
                             <h1 class="titulo_cadcli">Dados de endereço</h1>
                             
                             <p:panelGrid styleClass="panelgrid_end" columns="1">
-                                <h:outputText styleClass="output_text" value="Rua:"/>
-                                <p:inputText id="txtRua" value="#{empresaController.empresa.endereco.logradouro}" required="true"
-                                             requiredMessage="Tá faltando preencher o campo rua!" size="50"/>
-                                <p:message for="txtRua" />
+                                <h:outputText styleClass="output_text" value="Logradouro:"/>
+                                <p:inputText id="txtLogradouro" value="#{empresaController.empresa.endereco.logradouro}" required="true"
+                                             requiredMessage="Tá faltando preencher o campo logradouro!" size="50"/>
+                                <p:message for="txtLogradouro" />
                                 
                                 <h:outputText styleClass="output_text" value="Número:"/>
                                 <p:inputText id="txtNumero" value="#{empresaController.empresa.endereco.numero}" required="true"

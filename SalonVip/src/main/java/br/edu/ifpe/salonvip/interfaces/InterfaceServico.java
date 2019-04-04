@@ -14,4 +14,5 @@ import java.util.List;
  */
 public interface InterfaceServico extends DAO<Servico>{
     public List buscarServicosPorEmpresa(int id);
+    public List buscarServicoPorCategoria(String categoria);
 }

@@ -8,6 +8,7 @@ package br.edu.ifpe.salonvip.controller;
 import br.edu.ifpe.salonvip.model.entidades.Empresa;
 import br.edu.ifpe.salonvip.model.negocio.NegocioEmpresa;
 import br.edu.ifpe.salonvip.util.Messagens;
+import java.io.Serializable;
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -23,6 +24,7 @@ public class EmpresaController {
     private NegocioEmpresa negEmpresa;
     private Empresa empresa;
     private ArrayList<Empresa> listaEmpresa;
+    private String ret = "";
     
     public EmpresaController(){
         negEmpresa = new NegocioEmpresa();
@@ -75,7 +77,7 @@ public class EmpresaController {
     }
     
     public void limpar(){
-        empresa = new Empresa();
+        this.empresa = new Empresa();
     }
 
     public NegocioEmpresa getNegEmpresa() {
