@@ -7,6 +7,7 @@ package br.edu.ifpe.salonvip.repositorio.implementacao;
 
 import br.edu.ifpe.salonvip.interfaces.InterfaceServico;
 import br.edu.ifpe.salonvip.model.dao.PersistenciaDAO;
+import br.edu.ifpe.salonvip.model.entidades.Categoria;
 import br.edu.ifpe.salonvip.model.entidades.Servico;
 import java.util.List;
 
@@ -47,7 +48,7 @@ public class RepositorioServicoImplDB implements InterfaceServico{
 
     @Override
     public List buscarServicosPorEmpresa(int id) {
-        List lista = PersistenciaDAO.getInstance().listar("SELECT s FROM Servico s WHERE s.id_empresa="+id);
+        List lista = PersistenciaDAO.getInstance().listar("SELECT s FROM Servico s WHERE s.codigo="+id);
         if(!lista.isEmpty()){
             return lista;
         }
@@ -56,8 +57,8 @@ public class RepositorioServicoImplDB implements InterfaceServico{
     }
     
     @Override
-    public List buscarServicoPorCategoria(String categoria){
-        List lista = PersistenciaDAO.getInstance().listar("SELECT s FROM Servico s WHERE s.categoria="+categoria);
+    public List buscarServicoPorCategoria(Categoria categoria){
+        List lista = PersistenciaDAO.getInstance().listar("SELECT s FROM Servico s WHERE s.categoria =(SELECT c.codigo FROM Categoria c WHERE c.nome = '"+categoria.getNome()+"')");
         if(!lista.isEmpty()){
             return lista;
         }

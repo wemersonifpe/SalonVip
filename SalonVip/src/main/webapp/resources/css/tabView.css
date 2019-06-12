@@ -12,7 +12,8 @@ and open the template in the editor.
 
 .tab {
   overflow: hidden;
-  margin-left: 6rem;
+  margin-left: 10rem;
+  margin-right: 6rem;
   /*border: 1px solid #ccc;*/
   background-color: #ffffff;
   /*background-color: #f1f1f1;*/
@@ -45,21 +46,25 @@ and open the template in the editor.
 .tabcontent {
   display: none;
   padding: 6px 10px;
-  border: 1px solid #ccc;
+  /*border: 1px solid #ccc;*/
   border-top: none;
 }
 
-.copy {
-    margin: 3rem 1rem 0 1rem;
-    /*margin: 1rem 0 5rem 0;*/
-    border-top: 1px solid #cc0000;
-    align-items: center;
+.iten {
+    margin-left: 1rem;
+    margin-right: 4rem;
 }
 
-.iten {
-    margin-top: 3rem;
-    margin-left: 1rem;
-    margin-right: 11rem;
-    display: inline;
-    font-size: 16pt;
+.colu{
+    text-align: left;
+    width: 200px;
+    height: 100px;
+}
+
+.container_tab {
+    border: 1px solid #111111;
+    display: flex;
+    margin: 3rem 15rem 5rem 15rem;
+    justify-content: center;
+    background: #FFFFFF;
 }

@@ -7,6 +7,7 @@ package br.edu.ifpe.salonvip.model.negocio;
 
 import br.edu.ifpe.salonvip.interfaces.DAO;
 import br.edu.ifpe.salonvip.interfaces.InterfaceServico;
+import br.edu.ifpe.salonvip.model.entidades.Categoria;
 import br.edu.ifpe.salonvip.model.entidades.Servico;
 import br.edu.ifpe.salonvip.repositorio.implementacao.RepositorioServicoImplDB;
 import br.edu.ifpe.salonvip.util.TratamentoException;
@@ -87,7 +88,7 @@ public class NegocioServico implements InterfaceServico{
     }
     
     @Override
-    public List buscarServicoPorCategoria(String categoria){
+    public List buscarServicoPorCategoria(Categoria categoria){
         List lista = repServico.buscarServicoPorCategoria(categoria);
         if(lista == null){
             return null;

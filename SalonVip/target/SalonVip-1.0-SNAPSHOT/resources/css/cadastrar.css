@@ -15,16 +15,9 @@ and open the template in the editor.
     border: 1px solid #d3d3d3;
     border-radius: 5px;
     display: flex;
-    margin: 3rem 20rem 9rem 20rem;
+    margin: 3rem 20rem 0 20rem;
     justify-content: center;
     background: #FFFFFF;
-}
-
-.textpagina{
-    text-align: center; 
-    font-family: 'Bahnschrift SemiCondensed';
-    font-size: 26pt;
-    color: #8d5421;
 }
 
 .content_formcad {
@@ -32,7 +25,7 @@ and open the template in the editor.
 }
 
 h1.titulo_cadcli {
-    font-family: 'Baloo Bhai', 'Arial', sans-serif;
+    font-family: 'Arial', sans-serif;
     font-size: 18pt;
     color: darkgrey;
 }

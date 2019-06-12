@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Salão de Beleza</title>
+        <h:outputStylesheet library="css" name="pagina.css"/>
+        <h:outputStylesheet library="css" name="tabView.css"/>
+    </h:head>
+    <h:body>
+        <div class="contai">
+            <div class="navbar">
+                <div class="logo">
+                    <h1 style="font-family: Playfair Display,Vladimir Script; color: #111111">SalonVip</h1>
+                </div>
+                <div class="menu">
+                    <li class="menu_iten">
+                        <h:outputLink styleClass="outputlink" value="../index.xhtml">Inicio</h:outputLink>
+                    </li>
+                    <li class="menu_iten">
+                        <a class="outputlink" value="visualizarservicos.xhtml?faces-redirect=true">Serviços</a>
+                    </li>
+                    <li class="menu_iten">
+                        <h:outputLink styleClass="outputlink" value="meusagendamentos.xhtml?faces-redirect=true">Agenda Oline</h:outputLink>
+                    </li>
+                    <li class="menu_iten">
+                            <h:outputLink styleClass="outputlink" value="javascript:void(0)">Contato</h:outputLink>
+                    </li>
+                    <li class="menu_iten">
+                        <h:outputLink styleClass="outputlink" value="javascript:void(0)">Empresas</h:outputLink>
+                    </li>
+                </div>
+            </div>
+            <div styleClass="temp_conteudo" position="center" size="auto">
+                <ui:insert name="conteudo" />
+            </div>
+            <div styleClass="temp_rodape" id="rodape" position="south" size="auto" resizable="false" closable="false" collapsible="false">
+                <div class="rodape">
+                    <div class="copy">
+                        <p class="mens_rodape">&copy; 2019 SalonVip - Todos os direitos resevados</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
+

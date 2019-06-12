@@ -5,12 +5,12 @@
  */
 package br.edu.ifpe.salonvip.controller;
 
+import br.edu.ifpe.salonvip.model.entidades.Categoria;
 import br.edu.ifpe.salonvip.model.entidades.Horarios;
 import br.edu.ifpe.salonvip.model.entidades.Servico;
 import br.edu.ifpe.salonvip.model.negocio.NegocioServico;
 import br.edu.ifpe.salonvip.util.Messagens;
 import java.util.ArrayList;
-import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -25,15 +25,23 @@ public class ServicoController {
     private NegocioServico negServico;
     private Servico servico;
     private Horarios horas;
+    private Categoria categoria;
     private ArrayList<Servico> listaServico;
     private ArrayList<Servico> cabelos;
+    private ArrayList<Servico> unhas;
+    private ArrayList<Servico> faciais;
+    private ArrayList<Servico> maquiagens;
     
     public ServicoController(){
         negServico = new NegocioServico();
         servico = new Servico();
         horas = new Horarios();
+        categoria = new Categoria();
         listaServico = new ArrayList<>();
         cabelos = new ArrayList<>();
+        unhas = new ArrayList<>();
+        faciais = new ArrayList<>();
+        maquiagens = new ArrayList<>();
     }
     
     public String salvar(){
@@ -77,14 +85,37 @@ public class ServicoController {
         servico = new Servico();
     }
     
+    public void adicionarHorarios(){
+        servico.inserirHorarios(horas);
+        horas = new Horarios();
+    }
+        public void deletarHorarios(){
+        servico.deletarHorarios(horas);
+        horas = new Horarios();
+    }
+    
     public void listas(){
         listaServico = (ArrayList<Servico>) negServico.recuperarTodos();
-        
     }
     
     public void listaCabelos(){
-        String categoria = "Cabelo";
+        categoria.setNome("Cabelo");
         cabelos = (ArrayList<Servico>) negServico.buscarServicoPorCategoria(categoria);
+    }
+    
+    public void listaUnhas(){
+        categoria.setNome("Unhas");
+        unhas = (ArrayList<Servico>) negServico.buscarServicoPorCategoria(categoria);
+    }
+    
+    public void listaMaquiagens(){
+        categoria.setNome("Maquiagen");
+        maquiagens = (ArrayList<Servico>) negServico.buscarServicoPorCategoria(categoria);
+    }
+    
+    public void listaFaciais(){
+        categoria.setNome("Facial");
+        faciais = (ArrayList<Servico>) negServico.buscarServicoPorCategoria(categoria);
     }
     
     public void listarServicoPorEmpresa(int id){
@@ -128,6 +159,14 @@ public class ServicoController {
         this.horas = horas;
     }
 
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
     public ArrayList<Servico> getCabelos() {
         return cabelos;
     }
@@ -136,4 +175,29 @@ public class ServicoController {
         this.cabelos = cabelos;
     }
 
+    public ArrayList<Servico> getUnhas() {
+        return unhas;
+    }
+
+    public void setUnhas(ArrayList<Servico> unhas) {
+        this.unhas = unhas;
+    }
+
+    public ArrayList<Servico> getFaciais() {
+        return faciais;
+    }
+
+    public void setFaciais(ArrayList<Servico> faciais) {
+        this.faciais = faciais;
+    }
+
+    public ArrayList<Servico> getMaquiagens() {
+        return maquiagens;
+    }
+
+    public void setMaquiagens(ArrayList<Servico> maquiagens) {
+        this.maquiagens = maquiagens;
+    }
+
+    
 }

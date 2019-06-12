@@ -1,0 +1,9 @@
+#surefire
+#Mon Apr 15 22:47:23 GMT-03:00 2019
+maven.ext.class.path=C\:\\Program Files\\NetBeans 8.2\\java\\maven-nblib\\netbeans-eventspy.jar
+user.dir=C\:\\Users\\wemerson\\Documents\\NetBeansProjects\\SalonVip
+file.encoding=UTF-8
+localRepository=C\:\\Users\\wemerson\\.m2\\repository
+netbeans.deploy=true
+netbeans.deploy.clientUrlPart=/faces/index.xhtml
+basedir=C\:\\Users\\wemerson\\Documents\\NetBeansProjects\\SalonVip

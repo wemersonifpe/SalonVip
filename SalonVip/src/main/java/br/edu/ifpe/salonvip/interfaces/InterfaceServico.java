@@ -5,6 +5,7 @@
  */
 package br.edu.ifpe.salonvip.interfaces;
 
+import br.edu.ifpe.salonvip.model.entidades.Categoria;
 import br.edu.ifpe.salonvip.model.entidades.Servico;
 import java.util.List;
 
@@ -14,5 +15,5 @@ import java.util.List;
  */
 public interface InterfaceServico extends DAO<Servico>{
     public List buscarServicosPorEmpresa(int id);
-    public List buscarServicoPorCategoria(String categoria);
+    public List buscarServicoPorCategoria(Categoria categoria);
 }

@@ -27,8 +27,9 @@ public class NegocioCliente implements InterfaceCliente<Cliente>{
 
     @Override
     public Cliente autenticar(String login, String senha) {
-        if(login == null || senha == null )
+        if(login == null || senha == null ){
             return  null;
+        }
         return ((RepositorioClienteImplDB) repCliente).autenticar(login, senha);
     }
 

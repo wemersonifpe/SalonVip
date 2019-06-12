@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Salão de Beleza</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/template.xhtml">
+
+            <ui:define name="metadata">
+                <f:metadata>
+                    <f:event listener="#{servicoController.listaCabelos()}" type="preRenderView"/>
+                    <f:event listener="#{servicoController.listaFaciais()}" type="preRenderView"/>
+                    <f:event listener="#{servicoController.listaUnhas()}" type="preRenderView"/>
+                    <f:event listener="#{servicoController.listaMaquiagens()}" type="preRenderView"/>
+                </f:metadata>
+            </ui:define>
+            <ui:define name="conteudo">
+                <h1 class="textpagina">Nossos Serviços</h1>
+                <div class="temp_container_cli"><br/>
+                <div class="container_tab">
+                    <div class="content_formcad">
+                        <div class="tab">
+                            <button class="tablinks" onclick="openCity(event, 'Cabelo')" id="defaultOpen">Cabelo</button>
+                            <button class="tablinks" onclick="openCity(event, 'Facial')">Facial</button>
+                            <button class="tablinks" onclick="openCity(event, 'Unhas')">Unhas</button>
+                            <button class="tablinks" onclick="openCity(event, 'Maquiagem')">Maquiagem</button>
+                        </div>
+                        
+                        <div id="Cabelo" class="tabcontent">
+                            <h:form>
+                                <h:dataTable columnClasses="colu" value="#{servicoController.cabelos}" var="servico" rows="#{servico.codigo}">
+                                    <h:column>
+                                        <h:outputText style="font-size: 13pt" styleClass="iten" value="#{servico.empresa.nome}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <h:outputText style="font-weight: bold; font-size: 16pt" styleClass="iten" value="#{servico.nome}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <h:outputText style="font-size: 13pt" styleClass="iten" value="#{servico.duracao} min | R$ #{servico.valor}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <p:commandButton value="Agendar" title="agendar" action="agendarservicos.xhtml?faces-redirect=true">
+                                            <f:setPropertyActionListener value="#{servico}" target="#{servicoController.servico}"/>
+                                        </p:commandButton>
+                                    </h:column>
+                                </h:dataTable>
+                            </h:form>
+                        </div>
+                        
+                        <div id="Facial" class="tabcontent">
+                            <h:form>
+                                <h:dataTable columnClasses="colu" value="#{servicoController.faciais}" var="servico" rows="#{servico.codigo}">
+                                    <h:column>
+                                        <h:outputText style="font-size: 13pt" styleClass="iten" value="#{servico.empresa.nome}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <h:outputText style="font-weight: bold; font-size: 16pt" styleClass="iten" value="#{servico.nome}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <h:outputText style="font-size: 13pt" styleClass="iten" value="#{servico.duracao} min | R$ #{servico.valor}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <p:commandButton value="Agendar" title="agendar" action="agendarservicos.xhtml?faces-redirect=true">
+                                            <f:setPropertyActionListener value="#{servico}" target="#{servicoController.servico}"/>
+                                        </p:commandButton>
+                                    </h:column>
+                                </h:dataTable>
+                            </h:form>   
+                        </div>
+
+                        <div id="Unhas" class="tabcontent">
+                            <h:form>
+                                <h:dataTable columnClasses="colu" value="#{servicoController.unhas}" var="servico" rows="#{servico.codigo}">
+                                    <h:column>
+                                        <h:outputText style="font-size: 13pt" styleClass="iten" value="#{servico.empresa.nome}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <h:outputText style="font-weight: bold; font-size: 16pt" styleClass="iten" value="#{servico.nome}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <h:outputText style="font-size: 13pt" styleClass="iten" value="#{servico.duracao} min | R$ #{servico.valor}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <p:commandButton value="Agendar" title="agendar" action="agendarservicos.xhtml?faces-redirect=true">
+                                            <f:setPropertyActionListener value="#{servico}" target="#{servicoController.servico}"/>
+                                        </p:commandButton>
+                                    </h:column>
+                                </h:dataTable>
+                            </h:form>
+                        </div>
+                    
+                        <div id="Maquiagem" class="tabcontent">
+                            <h:form>
+                                <h:dataTable columnClasses="colu" value="#{servicoController.maquiagens}" var="servico" rows="#{servico.codigo}">
+                                    <h:column>
+                                        <h:outputText style="font-size: 13pt" styleClass="iten" value="#{servico.empresa.nome}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <h:outputText style="font-weight: bold; font-size: 16pt" styleClass="iten" value="#{servico.nome}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <h:outputText style="font-size: 13pt" styleClass="iten" value="#{servico.duracao} min | R$ #{servico.valor}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <p:commandButton value="Agendar" title="agendar" action="agendarservicos.xhtml?faces-redirect=true">
+                                            <f:setPropertyActionListener value="#{servico}" target="#{servicoController.servico}"/>
+                                        </p:commandButton>
+                                    </h:column>
+                                </h:dataTable>
+                            </h:form>
+                        </div>
+
+                        <script src="../resources/javaScript/tabview.js"></script>
+                    </div>
+                </div>
+                    <center><h4 style="color: #492630">- Aguardamos a sua presença -</h4></center>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

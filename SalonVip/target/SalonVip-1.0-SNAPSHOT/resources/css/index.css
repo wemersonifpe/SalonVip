@@ -24,16 +24,17 @@ h1, p, a {
 }
 
 .container {
-    background: url("#{resource['imagens/plano_de_fundo2.jpg']}") fixed;
+    background: url("#{resource['imagens/index.jpg']}") center;
     background-size: cover;
-    height: 45rem;
+    height: 50rem;
 }
 
 /* Topo da pagina - barra de navegação */
 .navbar {
-    background-image: radial-gradient(circle at top left, #cc0000, #ff0066);
-    height: 12%;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, .4);
+    /*background-image: radial-gradient(circle at top left, #cf526f, #cf526f);*/
+    height: 10%;
+    /*box-shadow: 0px 4px 0px rgba(4, 4, 4, 4);*/
+    background: rgba(0,0,0,.1);
     position: sticky;
     top: 0;
     left: 0;
@@ -41,6 +42,11 @@ h1, p, a {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
+}
+.texto{
+font: normal normal normal 16px/1.4em futura-lt-w01-light,sans-serif;
+    /*color: #7DB0AD;*/
+    color: #FFFFFF
 }
 
 .logo {
@@ -50,6 +56,13 @@ h1, p, a {
 .menu {
     display: flex;
     align-items: center;
+   /* margin-left: 2rem;*/
+}
+.menulog {
+    display: flex;
+    align-items:  center;
+    margin-left: auto;
+    margin-right: 1rem;
 }
 
 #logotipo {
@@ -79,12 +92,12 @@ h1, p, a {
 
 .outputlinklogin {
     text-decoration: none;
-    color: #e3e3e3;
+    color: #FFFFFF;
 }
 /*foi criada*/
 .outputlink {
     text-decoration: none;
-    color: #e3e3e3;
+    color: #FFFFFF;
 }
 
 li.menu_login:hover, .outputlinklogin:hover {
@@ -219,20 +232,21 @@ li.menu_login:nth-child(2) {
 
 /* Corpo da pagina - Titulo da pagina(banner) */
 h1#titulo {
-    font-family: 'Vladimir Script', cursive;
+    font-family: 'Vladimir Script';
     font-size: 90pt;
-    color: #000000;
-    margin-top: 10rem;
+    color: white;
+    margin-top: 15rem;
     margin-bottom: -2rem;
-    text-align: center;
+    /*margin-left: 10rem;*/text-align: center;
+    text-shadow: 0.2rem 0.2rem 0.3rem #111111;
 }
 
 h3 {
-    color: #8d5421;
-    margin-bottom: 20rem;
-    text-align: center;
-    font-size: 20pt;
-    font-family:'libre baskerville',serif;;
+    color: #111111;
+    margin-bottom: 18rem;
+    /*margin-left: 12rem;*/text-align: center;
+    font-size: 15pt;
+    font-family:'Arial',serif;;
 }
 
 .quemsomos {
@@ -263,7 +277,7 @@ h3 {
 .informativo {
     margin-top: 5rem;
     padding: 0.5rem 5rem 2rem;
-    background: url("#{resource['imagens/segundo_plano.jpg']}") fixed;
+    background: url("#{resource['imagens/plano13.jpg']}") fixed;
     background-size: cover;
 }
 
@@ -322,9 +336,10 @@ h1#servico {
 
 /* Rodapé da pagina */
 .rodape {
-    background-image: radial-gradient(circle at top left, #cc0000, #ff0066);
+    background-image: radial-gradient(circle at top left, #dceef7, #dceef7);
     min-height: 20rem;
     margin-top: 5rem;
+    /*color:#dceef7*/
 }
 
 .rodape-content {
@@ -343,7 +358,7 @@ li.sobre_empresa {
     margin-bottom: 0.3rem;
     list-style: none;
     text-shadow: none;
-    color: #ffffff;
+    color: darkolivegreen;
     font-size: 12pt;
     font-family: 'Bahnschrift SemiCondensed', sans-serif;
 }
@@ -351,11 +366,12 @@ li.sobre_empresa {
 li.sobre_empresa:first-child {
     font-family: 'Bahnschrift SemiCondensed', sans-serif;
     font-size: 20pt;
-    color: darkseagreen;
+    color: #111111;
     margin-bottom: 1rem;
 }
 
 li.sobre_empresa a {
+    color: darkolivegreen;
     text-decoration: none;
 }
 
@@ -372,7 +388,7 @@ p.mens_rodape {
     font-family: 'Arial', sans-serif;
     text-align: center;
     text-shadow: none;
-    color: #ffffff;
+    color: #000000;
 }
 
 @media screen and (max-width: 900px) {

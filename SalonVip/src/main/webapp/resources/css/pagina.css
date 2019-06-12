@@ -1,0 +1,309 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 11/03/2019, 16:26:03
+    Author     : wemerson
+*/
+
+@charset 'utf-8';
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhai');
+
+body {
+    margin: 0;
+    padding: 0;
+    min-width: 350px;
+}
+.logo {
+    text-align: left;
+}
+
+.texto{
+    font: normal normal normal 16px/1.4em futura-lt-w01-light,sans-serif;
+    /*color: #7DB0AD;*/
+    color: #FFFFFF
+}
+
+.container {
+    /*background: url("#{resource['imagens/plano_de_fundo2.jpg']}") center;*/
+    background: url("#{resource['imagens/maquiage.jpg']}") fixed;
+    background-size: cover;
+    height: 55rem;
+}
+.contai {
+    background: url("#{resource['imagens/tempCli.jpg']}") fixed;
+    background-size: cover;
+    height: 55rem;
+}
+
+.contaiSala {
+    background: url("#{resource['imagens/tempCli_1.jpg']}") fixed;
+    background-size: cover;
+    height: 55rem;
+}
+
+.ui-layout-unit .ui-layout-unit-content {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none;
+    overflow: hidden !important;
+}
+
+.temp_container_cli {
+    /*height: 45rem;*/
+    justify-content: center;
+    min-height: 551px;
+    /*min-width: 300px !important;*/
+    /*background: url("#{resource['imagens/maquiage.jpg']}") fixed;*/
+    background: #FFFFFF;
+    background-size: cover;
+}
+
+.temp_tabela{
+    border: 1px solid #111111;
+    display: flex;
+    margin: 3rem 25rem 5rem 25rem;
+    justify-content: center;
+    background: #FFFFFF;
+}
+
+.temp_container {
+    min-height: 900px !important;
+    min-width: 300px !important;
+    background-size: cover;
+}
+
+.agendas {
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    display: flex;
+    margin: 3rem 15rem 3rem 15rem;
+    justify-content: center;
+    background: #FFFFFF;
+}
+
+.container_formcad {
+    /*border: 1px solid #cf526f;
+    border-radius: 5px;*/
+    display: flex;
+    margin: 3rem 15rem 5rem 15rem;
+    justify-content: center;
+    background: #FFFFFF;
+}
+
+.container_form_cadastro {
+    border: 1px solid #111111;
+    display: flex;
+    margin: 3rem 20rem 5rem 20rem;
+    justify-content: center;
+    background: #FFFFFF;
+}
+
+.content_formcad {
+    margin: 2rem;
+}
+.ifen {
+    margin: 5rem 46.5rem 0 46.5rem;
+    border-top: 3px solid #111111;
+}
+.textpagina{
+    margin: 5rem 0 5rem 0;
+    text-align: center;
+    /*font: italic normal normal 60px/1.4em belinda-w00-regular,script;*/
+    font-family: 'Vladimir Script';
+    font-size: 50pt;
+    color: #FFFFFF;
+    text-shadow: 0.2rem 0.2rem 0.3rem #111111;
+}
+
+.navbar {
+    background: #FFFFFF;
+    height: 10%;
+    box-shadow: 0px 4px 10px rgba(.4, 0, 0, 0);
+    /*position: sticky;*/
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+.nav {
+    /*box-shadow: 0px 4px 10px rgba(0, 1, 4, 0);*/
+    background: #fbf6f1;
+    height: 10%;
+    /*position: fixed;*/
+    top: 3rem;
+    z-index: 1;
+    display: flex;
+    width: 100%;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+}
+
+#login_cadastro1, li.menu_iten {
+    display: inline;
+    margin: 0 0.8rem;
+    font-family: 'Bahnschrift SemiCondensed', sans-serif;
+    font-size: 16pt;
+}
+
+.outputlink {
+    text-decoration: none;
+    color: #111111;
+}
+li.menu_iten:hover, .outputlink:hover{
+    cursor: pointer;
+    color: #8d5421;
+} 
+li.menu_iten:nth-child(2){
+    cursor: context-menu;
+}
+
+.temp_conteudo { 
+    bottom: 11px; 
+    height: 100%;
+    margin: 0 !important;
+    padding: 1rem !important;
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+.iten {
+    margin-left: 1rem;
+    margin-right: 3rem;
+}
+
+.colu{
+    text-align: left;
+    width: 200px;
+    height: 80px;
+}
+
+/* Rodapé da pagina */
+.rodape {
+    background: #492630;
+    min-height: 6rem;
+    margin-top: 8rem;
+}
+
+.rodape-content {
+    margin: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row wrap;
+}
+
+ul.conteudo_rodape {
+    margin-top: 2rem;
+}
+
+li.sobre_empresa {
+    margin-bottom: 0.3rem;
+    list-style: none;
+    text-shadow: none;
+    color:  #aa4f7c;
+    font-size: 12pt;
+    font-family: 'Bahnschrift SemiCondensed', sans-serif;
+}
+
+li.sobre_empresa:first-child {
+    font-family: 'Bahnschrift SemiCondensed', sans-serif;
+    font-size: 20pt;
+    color: #8d5421;
+    margin-bottom: 1rem;
+}
+
+li.sobre_empresa a {
+    text-decoration: none;
+}
+
+li.sobre_empresa a:hover {
+    color: #aa4f7c;
+}
+
+.copy {
+    margin: 2rem 2rem 0 2rem;
+    border-top: 1px solid #d3d3d3;
+}
+
+p.mens_rodape {
+    margin-top: 2.5rem;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    text-shadow: none;
+    color: #FFFFFF;
+}
+
+.panelgridcad tr, .panelgridcad td, .panelgrid_end tr, .panelgrid_end td {
+    border: none !important;
+}
+/*posso apagar*/
+.tentandoagendar{
+    margin: 10rem 16rem 9rem 16rem; 
+    background: mistyrose; 
+    height: 35rem;
+}
+.conteudo_info {
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+}
+.tentandoinfo {
+    border: 1px solid #111111;
+    margin-right: -2rem;
+    margin-left: 3rem;
+    background: #FFFFFF;
+    padding: 0;
+    height: 350px;
+    width: 300px;
+}
+.tentandofonte {
+    margin-left: 3rem;
+    font: normal 25px/2.8em dinneuzeitgroteskltw01-_812426,sans-serif;
+    color: #111111;
+}
+.font_0 {
+    text-align: center;
+    font: italic normal normal 26px/1.4em 'noticia text',serif;
+    color: #48AECB;
+}
+.tentandotexto{
+    margin-left: 1rem;
+    color:  #606060;
+    font: normal 25px/1.8em dinneuzeitgroteskltw01-_812426,sans-serif;
+}
+p {    
+    margin: 0 1rem 2rem;
+    text-align: center;
+    text-indent: 50px;
+    font-size: 12pt;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 1px;
+    color: #111111;
+}
+.te{
+    margin-left: 1rem;
+    text-align: center;
+    text-indent: 50px;
+    font-size: 13pt;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 1px;
+    color: #111111;
+}
+@media screen and (max-width: 400px) {
+
+    li.menu_iten {
+        font-size: 14pt;
+    }
+    
+    li.menu_iten:nth-child(2) {
+        font-size: 12pt;
+    }
+}

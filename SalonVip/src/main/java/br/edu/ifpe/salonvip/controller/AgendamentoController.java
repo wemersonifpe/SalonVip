@@ -6,6 +6,7 @@
 package br.edu.ifpe.salonvip.controller;
 
 import br.edu.ifpe.salonvip.model.entidades.Agendamento;
+import br.edu.ifpe.salonvip.model.entidades.StatusAgenda;
 import br.edu.ifpe.salonvip.model.negocio.NegocioAgendamento;
 import br.edu.ifpe.salonvip.util.Messagens;
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class AgendamentoController {
     private NegocioAgendamento negAgenda;
     private Agendamento agenda;
     private ArrayList<Agendamento> listaAgenda;
+    private String retorno = "";
     
     public AgendamentoController(){
         negAgenda = new NegocioAgendamento();
@@ -32,13 +34,14 @@ public class AgendamentoController {
     
     public String salvar(){
         try {
+            agenda.setStatusAgenda(StatusAgenda.ESPERA);
             negAgenda.inserir(agenda);
             limpar();
-            //deve retornar meus agendamentos
+            retorno = "meusagendamentos.xhtml?faces-redirect=true";
         } catch (Exception e) {
             Messagens.getInstance().nenhumaInfomacao();
         }
-        return null;
+        return retorno;
     }
     
     public String altera(){
@@ -53,7 +56,7 @@ public class AgendamentoController {
         return null;
     }
     
-    public String deletar(){
+    /*public String deletar(){
         try {
             negAgenda.deletar(agenda);
             limpar();
@@ -63,6 +66,34 @@ public class AgendamentoController {
             Messagens.getInstance().nenhumaInfomacao();
         }
         return null;
+    }*/
+    
+    public void deletarAgendamentoCliente() {
+        
+        try {
+            AutenticarBean autBen = new AutenticarBean();
+
+            if(autBen.getClienteLogin() != null && agenda.getStatusAgenda() == StatusAgenda.ESPERA) {
+                negAgenda.deletar(agenda);
+                Messagens.getInstance().deletadoComSucesso();
+            }else{
+               // Messagens.getInstance().ErroAoDeletarSoMenteEspera();
+            }
+            
+
+        } catch (Exception ex) {
+            Messagens.getInstance().nenhumaInfomacao();
+        }
+    }
+    public void deletarAgendamentoEmpresa() {
+        
+        try {     
+                negAgenda.deletar(agenda);
+                Messagens.getInstance().deletadoComSucesso();
+           
+        } catch (Exception ex) {
+            Messagens.getInstance().nenhumaInfomacao();
+        }
     }
     
     public void listar(){

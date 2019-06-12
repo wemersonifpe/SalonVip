@@ -23,8 +23,8 @@ import javax.faces.context.FacesContext;
 public class AutenticarBean {
     private String email;
     private String senha;
-    private Cliente clienteLogin;
-    private Empresa empresaLogin;
+    private Cliente clienteLogin = null;
+    private Empresa empresaLogin = null;
     
     public AutenticarBean(){
         clienteLogin = new Cliente();
@@ -32,28 +32,24 @@ public class AutenticarBean {
     }
     
     public String entrar(){
-        if(email == null){
-            System.out.println("Valor nulo para email");
-        }
-        if(senha == null){
-            System.out.println("Valor nulo prar senha");
-        }
-        //poderia ter um criptografia da senha
+        System.out.println("ESTA FUNCIONANDO PASSO 1");
         NegocioCliente neg = new NegocioCliente();
         clienteLogin = neg.autenticar(email, senha);
         
-        if(clienteLogin == null){
+        if(clienteLogin != null){
+            System.out.println("ESTA FUNCIONANDO PASSO 2");
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Você esta Logado!"));
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("clienteLogado", this.clienteLogin);
-            return "Cliente/visualizarServicos.xhtml?faces-redirect=true";
+            return "cliente/visualizarservicos.xhtml?faces-redirect=true";
         }else{
+            System.out.println("ESTA FUNCIONANDO PASSO 3");
             NegocioEmpresa negEmp = new NegocioEmpresa();
             empresaLogin = negEmp.autenticar(email, senha);
             
             if(empresaLogin != null) {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Você esta Logado!"));
                 FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("empresaLogado", this.empresaLogin);
-                return "Empresa/meusAgendamentos.xhtml?faces-redirect=true";
+                return "empresa/menu.xhtml?faces-redirect=true";
             }
         }
         if(clienteLogin == null && empresaLogin == null) {
@@ -66,6 +62,8 @@ public class AutenticarBean {
     public String sair() {
         clienteLogin = null;
         empresaLogin = null;
+        email = "";
+        senha = "";
         return "../index.xhtml?faces-redirect=true";
     }
     

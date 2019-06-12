@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Salão de Beleza</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="../templates/templateCliente.xhtml">
+            <ui:define name="conteudo">
+                <h1 class="textpagina">Agendaamento Oline</h1>
+                <div class="temp_container_cli">
+                <div class="container_formcad">
+                    <h:form id="formpesquisa">
+                        <p:growl id="growl" life="10000" showDetail="true" showSummary="false"/>
+                        <h3 class="tentandofonte">Agenda Online</h3>
+                        <div class="conteudo_info">
+                            <div class="tentandoinfo">
+                                <h2 class="tentandotexto">EMPRESA</h2>
+                                <h:panelGrid columns="1">
+                                    <h:outputText class="te" value="Nome: #{servicoController.servico.empresa.nome}"/>
+                                    <h:outputText class="te" value="#{servicoController.servico.empresa.cnpj}"/> 
+                                    <h:outputText class="te" value="#{servicoController.servico.empresa.endereco.logradouro} Nº: #{servicoController.servico.empresa.endereco.numero}"/>
+                                    <h:outputText class="te" value="#{servicoController.servico.empresa.endereco.cidade}, #{servicoController.servico.empresa.endereco.bairro}"/> 
+                                </h:panelGrid>
+                                <h2 class="tentandotexto">CONTATO</h2>
+                                <h:panelGrid columns="1">
+                                    <h:outputText class="te" value="#{servicoController.servico.empresa.login}"/>
+                                </h:panelGrid>
+                            </div>
+                            <div class="tentandoinfo">
+                                <h2 class="tentandotexto">SERVIÇO</h2>
+                                <h:panelGrid columns="1">
+                                    <h:outputText class="te" value="#{servicoController.servico.nome}#{agendamentoController.agenda.setServico(servicoController.servico)}"/>
+                                    <h:outputText class="te" value="#{servicoController.servico.duracao} min"/>
+                                    <h:outputText class="te" value="R$ #{servicoController.servico.valor}"/>
+                                </h:panelGrid><br/>
+                                <h:panelGrid columns="1">
+                                    <h:outputText class="te" value="Empresa: #{servicoController.servico.empresa.nome}"/>
+                                    <h:outputText class="te" value="Cliente: #{autenticarBean.clienteLogin.nome}#{agendamentoController.agenda.setCliente(autenticarBean.clienteLogin)}"/>
+                                </h:panelGrid>
+                            </div>
+                            <div class="tentandoinfo">
+                                <h2 class="tentandotexto">HORÁRIO</h2>
+                                <h:panelGrid columns="1">                                    
+                                    <p:outputLabel class="te" value="Data:"/>
+                                    <p:inputMask style="margin-left: 1rem; width: 155px" id="ad" value="#{agendamentoController.agenda.data}" mask="99/99/9999"
+                                                 required="true" requiredMessage="falta a data!!"/>                                                                       
+                                    <p:outputLabel class="te" value="Hora:"/>
+                                    <p:selectOneMenu class="te" id="lazy" value="#{agendamentoController.agenda.hora}" style="width:125px">
+                                        <f:selectItem itemLabel="Horarios" itemValue=""/>
+                                        <f:selectItems value="#{servicoController.servico.horarios}"/>
+                                    </p:selectOneMenu>           
+                                </h:panelGrid><br/>
+                                <p:commandButton style="margin-left: 1rem" value="agendar" action="#{agendamentoController.salvar()}" update="@form"/>
+                            </div>
+                        </div>
+                        <center><h4 style="color: #492630">- Aguardamos a sua presença -</h4></center>
+                    </h:form>
+                    
+                </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

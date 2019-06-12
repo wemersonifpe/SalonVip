@@ -8,13 +8,8 @@
         <title>Salão de Beleza</title>
         <h:outputStylesheet library="css" name="index.css"/>
         <style>
-            html {
-              scroll-behavior: smooth;
-            }
-
-            #1 {
-              height: 600px;
-            }
+            html{scroll-behavior: smooth;}
+            #1{height: 600px;}
         </style>
     </h:head>
     <h:body>
@@ -24,7 +19,7 @@
                 
                 <div class="navbar">
                     <div class="logo">
-                        <h1 style="font-family: Playfair Display,Vladimir Script">SalonVip</h1>
+                        <h1 style="font-family: Playfair Display,Vladimir Script; color: #111111">SalonVip</h1>
                     </div>
                     <div class="menu">
                         <li class="menu_iten">
@@ -34,7 +29,7 @@
                             <a href="#1" class="outputlink" value="javascript:void(0)">Serviços</a>
                         </li>
                         <li class="menu_iten">
-                            <h:outputLink styleClass="outputlink" value="faces/agendamentos.xhtml?faces-redirect=true">Agendamento</h:outputLink>
+                            <h:outputLink styleClass="outputlink" value="faces/visualizarservicos.xhtml?faces-redirect=true">Agenda Oline</h:outputLink>
                         </li>
                         <li class="menu_iten">
                             <h:outputLink styleClass="outputlink" value="javascript:void(0)">Contato</h:outputLink>
@@ -94,7 +89,7 @@
                     </div>
                 </div>
                 
-                <h1 id="titulo">Bem-vinda</h1>
+                <h1 id="titulo">Salão de Beleza</h1>
                 <h3>A experiência completa do SalonVip</h3>
                 
                 <div id="1" class="informativo">
@@ -102,23 +97,23 @@
                     <div class="conteudo_info">
                         <div class="info">
                             <h1 id="servico">Facial</h1>
-                            <div class="agend"><h:outputLink styleClass="outputlinkserv" value="javascript:void(0)">Agende ja ></h:outputLink></div>
+                            <div class="agend"><h:outputLink styleClass="outputlinkserv" value="faces/visualizarservicos.xhtml?faces-redirect=true">Agende ja ></h:outputLink></div>
                             <h:graphicImage styleClass="inf_img" library="imagens" name="cabelos.png"/>
                         </div>
                         <div class="info">
                             <h:graphicImage styleClass="inf_img" library="imagens" name="cosmeticos.png"/>
                             <h1 id="servico">Cabelo</h1>
-                            <div class="agend"><h:outputLink styleClass="outputlinkserv" value="javascript:void(0)">Agende ja ></h:outputLink></div>
+                            <div class="agend"><h:outputLink styleClass="outputlinkserv" value="faces/visualizarservicos.xhtml?faces-redirect=true">Agende ja ></h:outputLink></div>
                         </div>
                         <div class="info">
                             <h1 id="servico">Maquiagem</h1>
-                            <div class="agend"><h:outputLink styleClass="outputlinkserv" value="javascript:void(0)">Agende ja ></h:outputLink></div>
+                            <div class="agend"><h:outputLink styleClass="outputlinkserv" value="faces/visualizarservicos.xhtml?faces-redirect=true">Agende ja ></h:outputLink></div>
                             <h:graphicImage styleClass="inf_img" library="imagens" name="unhas.png"/>
                         </div>
                         <div class="info">
                             <h:graphicImage styleClass="inf_img" library="imagens" name="maquiagem.jpg"/>
                             <h1 id="servico">Unhas</h1>
-                            <div class="agend"><h:outputLink styleClass="outputlinkserv" value="javascript:void(0)">Agende ja ></h:outputLink></div>
+                            <div class="agend"><h:outputLink styleClass="outputlinkserv" value="faces/visualizarservicos.xhtml?faces-redirect=true">Agende ja ></h:outputLink></div>
                         </div>
                     </div>
                 </div>
@@ -132,8 +127,8 @@
                         lugar para você contar 
                         sua história e permitir que seus clientes saibam um pouco 
                         mais sobre você. 
-                        <br></br>
-                        <br></br>
+                        <br/>
+                        <br/>
                         Este é um ótimo espaço para escrever um texto longo sobre a 
                         sua empresa e seus serviços. Fale sobre a sua equipe e 
                         sobre os serviços prestados por você. Conte aos seus
@@ -148,8 +143,8 @@
                             <ul class="conteudo_rodape">
                                 <li class="sobre_empresa">Contato</li>
                                 <li class="sobre_empresa">(87) 99999-9999</li>
-                                <li class="sobre_empresa">Av. Francisco Figueredo de Lima, 999</li> 
-                                <li class="sobre_empresa">Jd. Paulistano - Garanhuns, PE</li>
+                                <!--li class="sobre_empresa">Av. Francisco Figueredo de Lima, 999</li> 
+                                <li class="sobre_empresa">Jd. Paulistano - Garanhuns, PE</li-->
                                 <li class="sobre_empresa">salonvip@gmail.com</li>
                             </ul>
                         </div>

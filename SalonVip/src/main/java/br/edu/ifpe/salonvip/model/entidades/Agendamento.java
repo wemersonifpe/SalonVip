@@ -10,6 +10,8 @@ import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -37,15 +39,18 @@ public class Agendamento implements Serializable {
     private String data;
     @Column
     private String hora;
+    @Enumerated(EnumType.ORDINAL)
+    private StatusAgenda statusAgenda;
 
     public Agendamento() {
     }
 
-    public Agendamento(Cliente cliente, Servico servico, String data, String hora) {
+    public Agendamento(Cliente cliente, Servico servico, String data, String hora, StatusAgenda statusAgenda) {
         this.cliente = cliente;
         this.servico = servico;
         this.data = data;
         this.hora = hora;
+        this.statusAgenda = statusAgenda;
     }
 
     public int getCodigo() {
@@ -87,15 +92,24 @@ public class Agendamento implements Serializable {
     public void setHora(String hora) {
         this.hora = hora;
     }
+    
+    public StatusAgenda getStatusAgenda(){
+        return statusAgenda;
+    }
+    
+    public void setStatusAgenda(StatusAgenda statusAgenda){
+        this.statusAgenda = statusAgenda;
+    }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 59 * hash + this.codigo;
-        hash = 59 * hash + Objects.hashCode(this.cliente);
-        hash = 59 * hash + Objects.hashCode(this.servico);
-        hash = 59 * hash + Objects.hashCode(this.data);
-        hash = 59 * hash + Objects.hashCode(this.hora);
+        hash = 53 * hash + this.codigo;
+        hash = 53 * hash + Objects.hashCode(this.cliente);
+        hash = 53 * hash + Objects.hashCode(this.servico);
+        hash = 53 * hash + Objects.hashCode(this.data);
+        hash = 53 * hash + Objects.hashCode(this.hora);
+        hash = 53 * hash + Objects.hashCode(this.statusAgenda);
         return hash;
     }
 
@@ -126,12 +140,15 @@ public class Agendamento implements Serializable {
         if (!Objects.equals(this.servico, other.servico)) {
             return false;
         }
+        if (this.statusAgenda != other.statusAgenda) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Agendamento{" + "codigo=" + codigo + ", cliente=" + cliente + ", servico=" + servico + ", data=" + data + ", hora=" + hora + '}';
+        return "Agendamento{" + "codigo=" + codigo + ", cliente=" + cliente + ", servico=" + servico + ", data=" + data + ", hora=" + hora + ", statusAgenda=" + statusAgenda + '}';
     }
-    
+
 }

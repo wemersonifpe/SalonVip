@@ -43,14 +43,16 @@ Contributor(s):
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
     <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-    <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/SalonVip</property>
+    <property name="hibernate.connection.url">jdbc:postgresql://localhost:5433/SalonVip</property>
     <property name="hibernate.connection.username">postgres</property>
-    <property name="hibernate.connection.password">2001wds</property>
+    <property name="hibernate.connection.password">123456</property>
     <!-- Cria tabelas do banco de dados -->
     <property name="hibernate.hbm2ddl.auto">update</property>
     <!-- Mapeamento das classe -->
     <mapping class="br.edu.ifpe.salonvip.model.entidades.Cliente"/>
     <mapping class="br.edu.ifpe.salonvip.model.entidades.Endereco"/>
+    <mapping class="br.edu.ifpe.salonvip.model.entidades.Categoria"/>
+    <mapping class="br.edu.ifpe.salonvip.model.entidades.Horarios"/>
     <mapping class="br.edu.ifpe.salonvip.model.entidades.Empresa"/>
     <mapping class="br.edu.ifpe.salonvip.model.entidades.Servico"/>
     <mapping class="br.edu.ifpe.salonvip.model.entidades.Agendamento"/>

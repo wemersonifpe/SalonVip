@@ -6,13 +6,19 @@
 package br.edu.ifpe.salonvip.model.entidades;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 /**
@@ -37,21 +43,34 @@ public class Servico implements Serializable{
     private Empresa empresa;
     @Column(name = "descricao", length = 100)
     private String descricao;
-    @Column(name = "categoria")
-    private String categoria;
+    @ManyToOne
+    @JoinColumn(name = "cod_categoria", referencedColumnName = "id_categoria", nullable = false)
+    private Categoria categoria;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Horarios> horarios;
 
     public Servico() {
+        horarios = new ArrayList<>();
     }
 
-    public Servico(String nome, double duracao, double valor, Empresa empresa, String descricao, String categoria) {
+    public Servico(String nome, double duracao, double valor, Empresa empresa, String descricao, Categoria categoria, List<Horarios> horarios) {
         this.nome = nome;
         this.duracao = duracao;
         this.valor = valor;
         this.empresa = empresa;
         this.descricao = descricao;
         this.categoria = categoria;
+        this.horarios = horarios;
     }
 
+    public void inserirHorarios(Horarios hora){
+        horarios.add(hora);
+    }
+    
+    public void deletarHorarios(Horarios hora){
+        horarios.remove(hora);
+    }
+    
     public int getCodigo() {
         return codigo;
     }
@@ -100,24 +119,33 @@ public class Servico implements Serializable{
         this.descricao = descricao;
     }
     
-    public String getCategoria(){
+    public Categoria getCategoria(){
         return categoria;
     }
     
-    public void setCategoria(String categoria){
+    public void setCategoria(Categoria categoria){
         this.categoria = categoria;
+    }
+
+    public List<Horarios> getHorarios() {
+        return horarios;
+    }
+
+    public void setHorarios(List<Horarios> horarios) {
+        this.horarios = horarios;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 43 * hash + this.codigo;
-        hash = 43 * hash + Objects.hashCode(this.nome);
-        hash = 43 * hash + (int) (Double.doubleToLongBits(this.duracao) ^ (Double.doubleToLongBits(this.duracao) >>> 32));
-        hash = 43 * hash + (int) (Double.doubleToLongBits(this.valor) ^ (Double.doubleToLongBits(this.valor) >>> 32));
-        hash = 43 * hash + Objects.hashCode(this.empresa);
-        hash = 43 * hash + Objects.hashCode(this.descricao);
-        hash = 43 * hash + Objects.hashCode(this.categoria);
+        hash = 23 * hash + this.codigo;
+        hash = 23 * hash + Objects.hashCode(this.nome);
+        hash = 23 * hash + (int) (Double.doubleToLongBits(this.duracao) ^ (Double.doubleToLongBits(this.duracao) >>> 32));
+        hash = 23 * hash + (int) (Double.doubleToLongBits(this.valor) ^ (Double.doubleToLongBits(this.valor) >>> 32));
+        hash = 23 * hash + Objects.hashCode(this.empresa);
+        hash = 23 * hash + Objects.hashCode(this.descricao);
+        hash = 23 * hash + Objects.hashCode(this.categoria);
+        hash = 23 * hash + Objects.hashCode(this.horarios);
         return hash;
     }
 
@@ -148,10 +176,13 @@ public class Servico implements Serializable{
         if (!Objects.equals(this.descricao, other.descricao)) {
             return false;
         }
+        if (!Objects.equals(this.empresa, other.empresa)) {
+            return false;
+        }
         if (!Objects.equals(this.categoria, other.categoria)) {
             return false;
         }
-        if (!Objects.equals(this.empresa, other.empresa)) {
+        if (!Objects.equals(this.horarios, other.horarios)) {
             return false;
         }
         return true;
@@ -159,7 +190,7 @@ public class Servico implements Serializable{
 
     @Override
     public String toString() {
-        return "Servico{" + "codigo=" + codigo + ", nome=" + nome + ", duracao=" + duracao + ", valor=" + valor + ", empresa=" + empresa + ", descricao=" + descricao + ", categoria=" + categoria + '}';
+        return "Servico{" + "codigo=" + codigo + ", nome=" + nome + ", duracao=" + duracao + ", valor=" + valor + ", empresa=" + empresa + ", descricao=" + descricao + ", categoria=" + categoria + ", horarios=" + horarios + '}';
     }
 
 }
