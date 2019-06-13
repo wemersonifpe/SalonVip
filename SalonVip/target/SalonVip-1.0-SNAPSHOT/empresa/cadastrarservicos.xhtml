@@ -27,8 +27,7 @@
                                 <h1 class="tentandotexto">Dados dos serviços</h1>
                                 <p:panelGrid styleClass="panelgridcad" columns="1">
                                     <p:outputLabel class="te" value="Categoria:"/>
-                                    <p:selectOneMenu id="lazy" value="#{servicoController.servico.categoria}" 
-                                                     var="categoria" rendererType="#{categoria}" style="width:125px">
+                                    <p:selectOneMenu id="lazy" value="#{servicoController.servico.categoria}" style="width:125px">
                                             <f:selectItem itemLabel="Categorias" itemValue=""/>
                                             <f:selectItems value="#{categoriaController.listaCategoria}"/>
                                         </p:selectOneMenu>
