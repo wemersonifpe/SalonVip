@@ -12,9 +12,7 @@
         <ui:composition template="../templates/templateEmpresa.xhtml">
             <ui:define name="head">
                 <h:outputStylesheet library="css" name="cadastrar.css"/>
-                <f:metadata>
-                    <f:event listener="#{categoriaController.listas}" type="preRenderView"/>
-                </f:metadata>
+                
             </ui:define>
             
             <ui:define name="conteudo">
@@ -26,11 +24,10 @@
                             <h:form id="formCad">
                                 <h1 class="tentandotexto">Dados dos serviços</h1>
                                 <p:panelGrid styleClass="panelgridcad" columns="1">
-                                    <p:outputLabel class="te" value="Categoria:"/>
-                                    <p:selectOneMenu id="lazy" value="#{servicoController.servico.categoria}" style="width:125px">
-                                            <f:selectItem itemLabel="Categorias" itemValue=""/>
-                                            <f:selectItems value="#{categoriaController.listaCategoria}"/>
-                                        </p:selectOneMenu>
+                                    <p:outputLabel class="te" value="Categoria:" for="somEixo"/>
+                                    <p:selectOneMenu value="#{servicoController.servico.categoria}" id="somEixo" converter="categoriaConverter">
+                                        <f:selectItems value="#{servicoController.categorias}" var="eixo" itemValue="#{eixo}" itemLabel="#{eixo.nome}"/>
+                                    </p:selectOneMenu>
                                     <h:outputText styleClass="output_text" value="Nome:"/>
                                     <p:inputText id="txtNome" value="#{servicoController.servico.nome}" required="true"
                                                  requiredMessage="Tá faltando preencher o campo nome!" size="30"/>

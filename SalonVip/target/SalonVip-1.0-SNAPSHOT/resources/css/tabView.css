@@ -68,3 +68,76 @@ and open the template in the editor.
     justify-content: center;
     background: #FFFFFF;
 }
+
+/*dialogo do login da classe visualizar servicos*/
+.ui-dialog .ui-dialog-titlebar {
+   display: none !important;
+}
+.dialoglogin {
+    border: 2px solid #cdcdcd;
+    border-radius: 20px;
+}
+.titulodialoglogin {
+    margin: 0 -3rem;
+    margin-left: 4rem;
+    font-family: 'Bahnschrift SemiCondensed';
+    font-size: 24pt;
+    color: #606060;
+    display: inline-block;
+}
+.fechardialog {
+    display: block;
+    position: absolute;
+    border: none !important;
+    width: 50px;
+    height: 50px;
+    float: right;
+    color: #606060!important;
+    background: none !important;
+    font-family: 'Fredoka One' !important;
+    font-weight: bold;
+    text-transform: uppercase !important;
+    text-align: center;
+    margin-top: 19px;
+    margin-right: 20px;
+    padding: 0px;
+}
+
+.fechardialog:hover, .fechardialog:focus {
+    border: none !important;
+    box-shadow: none !important;
+    color: #a9a9a9!important;
+}
+.panelgridlogin {
+    margin: 1rem 4rem 2rem;
+    padding: 0;
+}
+.outputlabeltext {
+    font-family: 'Bahnschrift SemiCondensed', sans-serif;
+    margin-bottom: 0; 
+}
+
+.inputemail, .inputsenha {
+    border-radius: 20px;
+    width: 100%;
+}
+
+.inputemail:focus, .inputsenha:focus {
+    border: 2px solid cyan !important;
+    box-shadow: 0 0 4px rgba(0, 255, 255, .6) !important;
+}
+
+.recuperarsenha {
+    margin: 0;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color: tomato !important;
+    font-size: 10pt;
+    font-family: 'Arial', 'Verdana', sans-serif;
+}
+
+.buttonlogin {
+    margin-top: 1.5rem;
+    width: 300px;
+    border-radius: 20px;
+}

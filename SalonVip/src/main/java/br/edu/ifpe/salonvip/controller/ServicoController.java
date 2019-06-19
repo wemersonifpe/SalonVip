@@ -11,6 +11,7 @@ import br.edu.ifpe.salonvip.model.entidades.Servico;
 import br.edu.ifpe.salonvip.model.negocio.NegocioServico;
 import br.edu.ifpe.salonvip.util.Messagens;
 import java.util.ArrayList;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -31,8 +32,11 @@ public class ServicoController {
     private ArrayList<Servico> unhas;
     private ArrayList<Servico> faciais;
     private ArrayList<Servico> maquiagens;
+    private List<Categoria> categorias;
+    private CategoriaController categoriaController;
     
     public ServicoController(){
+        categoriaController = new CategoriaController();
         negServico = new NegocioServico();
         servico = new Servico();
         horas = new Horarios();
@@ -42,6 +46,11 @@ public class ServicoController {
         unhas = new ArrayList<>();
         faciais = new ArrayList<>();
         maquiagens = new ArrayList<>();
+        this.categorias = this.retornarCategorias();
+    }
+    
+    public List<Categoria> retornarCategorias(){
+        return this.categoriaController.listas();
     }
     
     public String salvar(){
@@ -197,6 +206,22 @@ public class ServicoController {
 
     public void setMaquiagens(ArrayList<Servico> maquiagens) {
         this.maquiagens = maquiagens;
+    }
+
+    public List<Categoria> getCategorias() {
+        return categorias;
+    }
+
+    public void setCategorias(List<Categoria> categorias) {
+        this.categorias = categorias;
+    }
+
+    public CategoriaController getCategoriaController() {
+        return categoriaController;
+    }
+
+    public void setCategoriaController(CategoriaController categoriaController) {
+        this.categoriaController = categoriaController;
     }
 
     

@@ -48,7 +48,7 @@ public class RepositorioServicoImplDB implements InterfaceServico{
 
     @Override
     public List buscarServicosPorEmpresa(int id) {
-        List lista = PersistenciaDAO.getInstance().listar("SELECT s FROM Servico s WHERE s.codigo="+id);
+        List lista = PersistenciaDAO.getInstance().listar("SELECT s FROM Servico s WHERE s.empresa="+id);
         if(!lista.isEmpty()){
             return lista;
         }

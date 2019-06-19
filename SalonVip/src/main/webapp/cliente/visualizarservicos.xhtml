@@ -4,13 +4,18 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Salão de Beleza</title>
     </h:head>
     <h:body>
         <ui:composition template="../templates/templateCliente.xhtml">
-
+            <c:if test="#{autenticarBean.empresaLogin} == null">
+                <script>
+                    location.href = "index.xhtml?faces-redirect=true";
+                </script>
+            </c:if>
             <ui:define name="metadata">
                 <f:metadata>
                     <f:event listener="#{servicoController.listaCabelos()}" type="preRenderView"/>

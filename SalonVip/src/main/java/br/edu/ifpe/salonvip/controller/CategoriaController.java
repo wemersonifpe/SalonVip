@@ -11,6 +11,7 @@ import br.edu.ifpe.salonvip.util.Messagens;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 
 /**
@@ -19,16 +20,17 @@ import javax.faces.bean.SessionScoped;
  */
 @ManagedBean
 @SessionScoped
+@RequestScoped
 public class CategoriaController {
     
     private NegocioCategoria negCat;
     private Categoria categoria;
-    private ArrayList<Categoria> listaCategoria;
+    private List<Categoria> listaCategoria;
     
     public CategoriaController(){
         negCat = new NegocioCategoria();
         categoria = new Categoria();
-        listaCategoria = new ArrayList<>();
+        this.listaCategoria = this.listas();
     }
     
     public void salvar(){
@@ -69,8 +71,8 @@ public class CategoriaController {
         categoria = (Categoria) cat;
     }
     
-    public void listas(){
-        listaCategoria = (ArrayList<Categoria>) negCat.recuperarTodos();
+    public List<Categoria> listas(){
+        return this.negCat.recuperarTodos();
     }
     
     public void limpar(){
@@ -93,13 +95,12 @@ public class CategoriaController {
         this.categoria = categoria;
     }
 
-    public ArrayList<Categoria> getListaCategoria() {
+    public List<Categoria> getListaCategoria() {
         return listaCategoria;
     }
 
-    public void setListaCategoria(ArrayList<Categoria> listaCategoria) {
+    public void setListaCategoria(List<Categoria> listaCategoria) {
         this.listaCategoria = listaCategoria;
     }
-    
     
 }

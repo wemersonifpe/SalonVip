@@ -3,7 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Salão de Beleza</title>
     </h:head>
@@ -12,6 +14,12 @@
             <ui:define name="head">
                 <h:outputStylesheet library="css" name="cadastrar.css" />
             </ui:define>
+            
+            <c:if test="#{autenticarBean.empresaLogin} == null">
+                <script>
+                    location.href = "index.xhtml?faces-redirect=true";
+                </script>
+            </c:if>
             
             <ui:define name="conteudo">
                 <p:growl id="gro" life="4000" />
@@ -24,30 +32,36 @@
                             <h:form id="formCad">
                                 <p:panelGrid styleClass="panelgridcad" columns="1">
                                     <h:outputText styleClass="output_text" value="Nome:"/>
-                                    <p:inputText id="txtNome" value="#{autenticarBean.clienteLogin.nome}" required="true"
-                                                 requiredMessage="Tá faltando preencher o campo nome!" size="50"/>
+                                    <p:inputText id="txtNome" value="#{servicoController.servico.nome}" required="true"
+                                                 requiredMessage="Tá faltando preencher o campo nome!" size="30"/>
                                     <p:message for="txtNome" />
 
-                                    <h:outputText styleClass="output_text" value="CPF:"/>
-                                    <p:inputMask id="txtCpf" value="#{autenticarBean.clienteLogin.cpf}" mask="999.999.999-99"
-                                                 required="true" requiredMessage="Tá faltando preencher o campo CPF!" size="50"/>
-                                    <p:message for="txtCpf" />
+                                    <h:outputText styleClass="output_text" value="Duração:"/>
+                                    <p:inputText id="txtDuracao" value="#{servicoController.servico.duracao}" size="30"/>
+                                    <p:message for="txtDuracao" />
 
-                                    <h:outputText styleClass="output_text" value="Email:"/>
-                                    <p:inputText id="email" value="#{autenticarBean.clienteLogin.login}" required="true"
-                                                 requiredMessage="Tá faltando preencher o campo email!" size="50"/>
-                                    <p:message for="email"/>
-
-                                    <h:outputText styleClass="output_text" value="Senha:"/>
-                                    <p:password id="senha" feedback="true" value="#{autenticarBean.clienteLogin.senha}" required="true"
-                                                requiredMessage="Tá faltando preencher o campo senha!" size="50"/>
-                                    <p:message for="senha"/>
+                                    <h:outputText styleClass="output_text" value="Valor:#{servicoController.servico.setEmpresa(autenticarBean.empresaLogin)}"/>
+                                    <p:inputText id="txtValor" value="#{servicoController.servico.valor}" size="30"/>
+                                    <p:message for="txtValor" />
+                                    <h:outputText value="Horarios:"/>
+                                    <p:inputText value="#{servicoController.horas.hora}" size="30"/>
+                                    <p:commandButton value="adicionar" action="#{servicoController.adicionarHorarios()}" update=":formCad :gro"/>
                                 </p:panelGrid>
-
+                                <p:dataTable emptyMessage="Nenhum registro encontrado..." value="#{controllerServico.servico.listaDeHorarios}"
+                                             editable="true"
+                                             var="hora" id="proTable" 
+                                             rowKey="#{hora.id}" style="width:200px">
+                                    <p:column headerText="horarios" style="width:50px">
+                                        <h:outputText value="#{hora.hora}"/>
+                                            </p:column><p:column  style="width:65px">
+                                                <p:commandButton value="Deletar" title="editar" action="#{controllerServico.deletarHorarios()}" update="@form">
+                                                    <f:setPropertyActionListener value="#{hora}" target="#{controllerServico.horas}"/>
+                                                </p:commandButton>
+                                            </p:column>
+                                    </p:dataTable>
                                 <br/>
-
-                                <p:commandButton styleClass="button_cad" value="Alterar" action="#{clienteController.alterar(autenticarBean.clienteLogin)}"
-                                                 update=":formCad :gro" >
+                                <p:commandButton styleClass="button_cad" value="alterar" action="#{servicoController.alterar()}"
+                                             update=":formCad :gro" >
                                     <p:confirm header="Atenção" message="Deseja realmente salvar?" />
                                 </p:commandButton>
                             </h:form>

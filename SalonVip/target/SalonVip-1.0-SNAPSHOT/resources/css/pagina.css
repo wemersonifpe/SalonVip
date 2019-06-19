@@ -30,7 +30,7 @@ body {
     /*background: url("#{resource['imagens/plano_de_fundo2.jpg']}") center;*/
     background: url("#{resource['imagens/maquiage.jpg']}") fixed;
     background-size: cover;
-    height: 56rem;
+    height: 55rem;
 }
 .contai {
     background: url("#{resource['imagens/tempCli.jpg']}") fixed;
@@ -54,7 +54,7 @@ body {
 .temp_container_cli {
     /*height: 45rem;*/
     justify-content: center;
-    min-height: 560px;
+    min-height: 551px;
     /*min-width: 300px !important;*/
     /*background: url("#{resource['imagens/maquiage.jpg']}") fixed;*/
     background: #FFFFFF;
@@ -257,12 +257,12 @@ p.mens_rodape {
 }
 .tentandoinfo {
     border: 1px solid #111111;
-    margin-right: -1rem;
-    margin-left: 2rem;
+    margin-right: -2rem;
+    margin-left: 3rem;
     background: #FFFFFF;
     padding: 0;
     height: 350px;
-    width: 290px;
+    width: 300px;
 }
 .tentandofonte {
     margin-left: 3rem;
